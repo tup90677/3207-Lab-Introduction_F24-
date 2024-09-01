@@ -1,19 +1,20 @@
-//Given Project code
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include "random.c"
 
-char* rand_string_alloc(size_t size);
 
-char* rand_string_alloc(size_t size)
+int main()
 {
-     char *s = malloc(size + 1);
-     if (s) {
-         rand_string(s, size);
-     }
-     return s;
-}
+	int a;
 
-int main(){
+	/* seed the randomizer */
+	srand( (unsigned)time(NULL) );
 
-    return EXIT_SUCCESS;
+	printf("Today's random word: ");
+	for(a=0;a<7;a++)
+		putchar( randchar() );
+	putchar('\n');
+
+	return(0);
 }
